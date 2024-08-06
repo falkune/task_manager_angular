@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <!-- lien vers http://localhost:4200/my-task grace a l'attribut  routerLink-->
+      <a class="nav-link active" routerLink="task-list" routerLinkActive="active">My tasks</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"  aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="d-flex justify-content-end collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <!-- lien vers http://localhost:4200/add-task grace a l'attribut  routerLink-->
+            <a class="nav-link active" routerLink="task-form" routerLinkActive="active">Add Task</a>
+          </li>
+          <li class="nav-item">
+            <!-- lien vers http://localhost:4200/login grace a l'attribut  routerLink-->
+            <a class="nav-link active" routerLink="login" routerLinkActive="active">Login</a>
+          </li>
+          <li class="nav-item">
+            <!-- lien vers http://localhost:4200/register grace a l'attribut  routerLink-->
+            <a class="nav-link active" routerLink="register" routerLinkActive="active">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>

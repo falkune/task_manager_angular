@@ -1,0 +1,42 @@
+<div class="w-25 mx-auto">
+    <!-- Definition d'un formulaire Reactif Angular -->
+    <!-- [formGroup]="taskForm" : lie le formulaire a l'attribut 'registerForm' defini dans le fichier TypeScript du composant-->
+    <!-- (ngSubmit)="submit()" : declenche la methode 'submit()' definie dans le fichier  TypeScript du composant lorsque le formulaire est soumis -->
+    <form (ngSubmit)="onSubmit()" [formGroup]="taskForm">
+        <!-- Nom -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nom</label>
+            <input type="text" class="form-control" formControlName="nom">
+            <!-- Affiche un message d'erreur si le champ 'nom' est invalide et a ete touche -->
+            <div *ngIf="taskForm.get('nom')?.invalid && taskForm.get('nom')?.touched">
+                <!-- Affiche un message d'erreur specifique si l'erreur est 'required' -->
+                <p *ngIf="taskForm.get('nom')?.errors?.['required']">Le nom est requis</p>
+            </div>
+        </div>
+        <!-- Description -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Description</label>
+            <input type="text" class="form-control" formControlName="description">
+            <!-- Affiche un message d'erreur si le champ 'description' est invalide et a ete touche -->
+            <div *ngIf="taskForm.get('description')?.invalid && taskForm.get('description')?.touched">
+                <!-- Affiche un message d'erreur specifique si l'erreur est 'required' -->
+                <p *ngIf="taskForm.get('description')?.errors?.['required']">Le description est requis</p>
+            </div>
+        </div>
+        <!-- Date -->
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Date</label>
+        <input type="date" class="form-control" formControlName="date">
+        <!-- Affiche des messages d'erreur si le champ 'date' est invalide et a ete touche -->
+        <div *ngIf="taskForm.get('date')?.invalid && taskForm.get('date')?.touched">
+            <!-- Affiche un message d'erreur si l'erreur est 'required' -->
+            <p *ngIf="taskForm.get('date')?.errors?.['required']">l'date est requis</p>
+            <!-- Affiche un message d'erreur si l'erreur est 'date' -->
+            <p *ngIf="taskForm.get('date')?.errors?.['date']">Format email invalide</p>
+        </div>
+        </div>
+        <!-- bouton pour evoyer le formulaire -->
+        <button type="submit" class="btn btn-primary">Valider</button>
+    </form>
+</div>
+  

@@ -1,0 +1,54 @@
+<div class="w-25 mx-auto">
+    <!-- Definition d'un formulaire Reactif Angular -->
+    <!-- [formGroup]="registerForm" : lie le formulaire a l'attribut 'registerForm' defini dans le fichier TypeScript du composant-->
+    <!-- (ngSubmit)="submit()" : declenche la methode 'submit()' definie dans le fichier  TypeScript du composant lorsque le formulaire est soumis -->
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+        <!-- nom -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nom</label>
+            <input type="text" class="form-control" formControlName="nom">
+            <!-- Affiche un message d'erreur si le champ 'nom' est invalide et a ete touche -->
+            <div *ngIf="registerForm.get('nom')?.invalid && registerForm.get('nom')?.touched">
+                <!-- Affiche un message d'erreur specifique si l'erreur est 'required' -->
+                <p *ngIf="registerForm.get('nom')?.errors?.['required']">Le nom est requis</p>
+            </div>
+        </div>
+        <!-- prenom -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Prenom</label>
+            <input type="text" class="form-control" formControlName="prenom">
+            <!-- Affiche un message d'erreur si le champ 'prenom' est invalide et a ete touche -->
+            <div *ngIf="registerForm.get('prenom')?.invalid && registerForm.get('prenom')?.touched">
+                <!-- Affiche un message d'erreur specifique si l'erreur est 'required' -->
+                <p *ngIf="registerForm.get('prenom')?.errors?.['required']">Le prenom est requis</p>
+            </div>
+        </div>
+        <!-- emain -->
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email">
+        <!-- Affiche des messages d'erreur si le champ 'email' est invalide et a ete touche -->
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+            <!-- Affiche un message d'erreur si l'erreur est 'required' -->
+            <p *ngIf="registerForm.get('email')?.errors?.['required']">l'Email est requis</p>
+            <!-- Affiche un message d'erreur si l'erreur est 'email' -->
+            <p *ngIf="registerForm.get('email')?.errors?.['email']">Format email invalide</p>
+        </div>
+        </div>
+        <!-- mot de passe -->
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" formControlName="password">
+        <!-- Affiche des messages d'erreur si le champ 'password' est invalide et a ete touche -->
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+            <!-- Affiche un message d'erreur si l'erreur est 'required' -->
+            <p *ngIf="registerForm.get('password')?.errors?.['required']">Le mot de passe est requis</p>
+            <!-- Affiche un message d'erreur si l'erreur est 'minlength' -->
+            <p *ngIf="registerForm.get('password')?.errors?.['minlength']">Le mot de passe est trop court</p>
+        </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+  
